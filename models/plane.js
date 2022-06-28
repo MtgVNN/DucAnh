@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var mongoDB = 'mongodb://localhost:27017/plane';
+var mongoDB = 'mongodb+srv://nguyenducanh:Epicdemicsound98@cluster0.4lo2uru.mongodb.net/test';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 
