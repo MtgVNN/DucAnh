@@ -24,10 +24,10 @@ app.get('/viewProducts',async (req, res)=>{
     res.render('product/allProduct', {'products':query})
 })
 //Sort by price
-app.post('/sortByPrice',async (req, res)=>{
-    const query = await Product.find().sort({price : -1})
-    res.render('product/allProduct', {'products':query})
-})
+// app.post('/sortByPrice',async (req, res)=>{
+//     const query = await Product.find().sort({price : -1})
+//     res.render('product/allProduct', {'products':query})
+// })
 //Add Post
 app.post('/newProduct',async (req, res) => {
     const name = req.body.txtName

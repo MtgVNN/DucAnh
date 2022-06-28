@@ -8,6 +8,9 @@
     <style>
         body {
         font-family: "Lato", sans-serif;
+        background-image:url("https://t4.ftcdn.net/jpg/03/16/36/59/360_F_316365913_WKVKZW7gzsqqhkx4PgGyu0rArj5GykHK.jpg");
+        background-repeat: no-repeat;
+        background-size: 120%;
         }
         .nav {
         background-color: black;top: 0;position:fixed;width:100%;left: 0;
@@ -24,6 +27,7 @@
         }
         .content{
         max-width:2000px;margin-top:46px;text-align:center;
+
         }
         .product a{
             text-decoration: none;
@@ -42,10 +46,10 @@
 <!-- Page content -->
 <div class="content">
     <h1>All Product</h1>
-    <form action="/sortByPrice" method="post">
+    {{!-- <form action="/sortByPrice" method="post">
         <button>Sort by Price</button>
-    </form>
-    <br>
+    </form> --}}
+    {{!-- <br> --}}
     <form action="/searchProduct" method="post">
         <input type="text" name="txtSearch">
         <input type="submit" value="Search">
