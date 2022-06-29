@@ -65,6 +65,6 @@ app.post('/searchProduct',async (req, res) => {
     const query = await Product.find({'name':searchText})
     res.render('allProduct', {'products':query}) // render can ghi ca ten
 })
-const PORT = process.env.PORT || 6000
+const PORT = process.env.PORT || 7000
 app.listen(PORT)
 console.log("Server is running at: " + PORT)
