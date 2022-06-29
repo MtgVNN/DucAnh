@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/5.0.1/css/bootstrap.min.css">
+    <script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <title>New Product</title>
+
+    <style>
+        body {
+            background-image: url("https://t4.ftcdn.net/jpg/03/16/36/59/360_F_316365913_WKVKZW7gzsqqhkx4PgGyu0rArj5GykHK.jpg");
+            background-repeat: no-repeat;
+            background-size: 120%;
+            color: black;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1>Add New Product</h1>
+        <form action="/newProduct" method="post">
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="txtName">Name:</label>
+                        <input type="text" id="txtName" name="txtName" class="form-control" />
+                    </div>
+                    {{#if errorMsg}}
+                    <div style="color: red;">
+                        {{errorMsg}}
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="txtPrice">Price:</label>
+                        <input type="text" id="txtPrice" name="txtPrice" class="form-control" />
+                    </div>
+                </div>
+                {{#if errorPrice}}
+                <div style="color: red;">
+                    {{errorPrice}}
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="txtDescription">Description:</label>
+                <input type="text" id="txtDescription" name="txtDescription" class="form-control" />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="picURL">Picture:</label>
+                <input type="text" id="picURL" name="picURL" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
