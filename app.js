@@ -6,7 +6,7 @@ const app = express()
 const fs = require('fs')
 
 app.set('view engine', 'hbs')
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}))//support read properties input
 
 
 //Home page
@@ -16,12 +16,12 @@ app.get('/', async (req, res) => {
 })
 //Add page
 app.get('/newProduct', async (req, res) => {
-    res.render('product/newProduct')
+    res.render('newProduct')
 })
 //view page
 app.get('/viewProducts',async (req, res)=>{
     const query = await Product.find()
-    res.render('product/allProduct', {'products':query})
+    res.render('allProduct', {'products':query})
 })
 //Sort by price
 // app.post('/sortByPrice',async (req, res)=>{
@@ -40,13 +40,15 @@ app.post('/newProduct',async (req, res) => {
     if(name.trim().length == 0){
         errorMsg = "Name must not be empty!"
         flag=false
+        res.render('newProduct',{'errorMsg':errorMsg})
     }
     if(isNaN(price) == true){
         errorPrice = "Price must not contains characters!"
         flag=false
+        res.render('newProduct',{'errorPrice':errorPrice})
     }
     if (flag == true){
-        const productEntity = new Product({'name':name,'price':price, 'description': description, 'picURL':picURL})
+        const productEntity = new Product({'name':name,'price':price, 'description': description, 'picURL':picURL})//doi so
         await productEntity.save();
         res.redirect('/viewProducts')
     }
@@ -61,8 +63,8 @@ app.get('/delete',async (req, res) => {
 app.post('/searchProduct',async (req, res) => {
     const searchText = req.body.txtSearch
     const query = await Product.find({'name':searchText})
-    res.render('product/allProduct', {'products':query}) // render can ghi ca ten
+    res.render('allProduct', {'products':query}) // render can ghi ca ten
 })
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 1600
 app.listen(PORT)
 console.log("Server is running at: " + PORT)
